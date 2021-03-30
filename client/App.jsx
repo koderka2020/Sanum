@@ -8,9 +8,24 @@ import FriendProfile from './components/FriendProfile';
 import FeedItems from './components/FeedItems';
 import FeedPopUp from './components/FeedPopUp';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
+
 const App = (props) => {
-  return <div><Feed/></div>
+  return (
+    <div>   
+      <Feed />
+    </div>
+  )
 }
+
+
+
 
 
 

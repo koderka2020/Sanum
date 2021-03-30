@@ -5,15 +5,15 @@ const FeedItems = (props) => {
     <img src="src/cloud.png" alt="cloud" id ="cloud"/>
 
     <h3>username</h3>
-    <i class="far fa-heart"></i>
-    <i class="far fa-comment-dots"></i>
+    <i className="far fa-heart"></i>
+    <i className="far fa-comment-dots"></i>
     
     <div>
       <p>
        Caption Fetch
       </p>
       <p>
-      Calorie Fetch
+       Calorie/Exercise Fetch
       </p>
 
   </div>
