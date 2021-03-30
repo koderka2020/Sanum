@@ -10,12 +10,11 @@ import FeedPopUp from './components/FeedPopUp';
 
 class App extends Component {
   render() {
-    
-    return (
-      <div >
+    return(
+      <div>
         <Login></Login>
       </div>
-    );
+    )
   }
 }
 
