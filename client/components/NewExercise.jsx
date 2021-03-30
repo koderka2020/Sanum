@@ -4,7 +4,15 @@ const NewExercise = (props) => {
   return (
     <form>
       <label>
-        Exercise:
+        Exercise Type:
+        <input type="text" />
+      </label>
+      <label>
+        Duration:
+        <input type="text" />
+      </label>
+      <label>
+        Calories Burned:
         <input type="text" />
       </label>
       <label>
