@@ -1,7 +1,7 @@
 {
-  "name": "sanum",
+  "name": "Sanum",
   "version": "1.0.0",
-  "description": "LifeStyle Application for Fitness",
+  "description": "LifeStyle Application for Health and Fitness",
   "main": "webpack.config.js",
   "dependencies": {
     "assert": "^2.0.0",
@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
+    "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.2",
     "sass-loader": "^11.0.1",
