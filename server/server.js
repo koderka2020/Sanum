@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 
-const clientsRouter = require('./routes/clients');
+const userRouter = require('./routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -31,8 +31,8 @@ app.get('/styles.css',
 }
 );
 
-// app.use('/quote', quotesRouter);
 
+app.use('/user', userRouter);
 
 
 app.use('*', (req, res) => {
