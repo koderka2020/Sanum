@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const Feeditems = (props) => {
+const FeedItems = (props) => {
   return <div></div>;
 };
 
