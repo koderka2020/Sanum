@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { setState } from 'react';
 import Profile from './components/Profile';
 import Feed from './components/Feed';
 import FindFriends from './components/FindFriends';
@@ -7,16 +7,19 @@ import NavBar from './components/NavBar';
 import FriendProfile from './components/FriendProfile';
 import FeedItems from './components/FeedItems';
 import FeedPopUp from './components/FeedPopUp';
+import { StateProvider } from './store';
 
-class App extends Component {
-  render() {
-    return(
+
+const App = () => {
+
+  return (
+    <StateProvider>
       <div>
-        <Login></Login>
+        <Login/>
+        <NavBar/>
       </div>
-    )
-  }
+    </StateProvider>
+  )
 }
-
 
 export default App;
