@@ -1,4 +1,4 @@
-const db = require('../models/quoteModel');
+const db = require('../models/model');
 
 const clientsController = {
   getClients: (req, res, next) => {

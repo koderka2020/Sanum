@@ -1,4 +1,4 @@
-const db = require('../models/quoteModel');
+const db = require('../models/model');
 
 const photoboothsController = {
   getPhotobooths: (req, res, next) => {
