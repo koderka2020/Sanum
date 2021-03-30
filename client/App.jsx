@@ -8,16 +8,10 @@ import FriendProfile from './components/FriendProfile';
 import FeedItems from './components/FeedItems';
 import FeedPopUp from './components/FeedPopUp';
 
-class App extends Component {
-  render() {
-    
-    return (
-      <div >
-      
-      </div>
-    );
-  }
+const App = (props) => {
+  return <div><Feed/></div>
 }
+
 
 
 export default App;
