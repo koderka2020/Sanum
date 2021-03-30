@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 
 const NavBar = (props) => {
-  return <div></div>;
+  return (
+  <div>
+    <p>This is Navbar</p>
+  </div>
+  )
 }
 
 
