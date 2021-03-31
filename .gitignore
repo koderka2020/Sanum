@@ -1,4 +1,4 @@
 node_modules/
-OAuth.json
 build/
 package-lock.json
+config.js

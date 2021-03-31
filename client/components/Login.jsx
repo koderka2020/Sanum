@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { store } from '../store';
+import config from '../config';
+
+// require('dotenv').config();
 
 const Login = () => {
   const globalState = useContext(store);
@@ -38,7 +41,7 @@ const Login = () => {
   return (
     <div>
       <GoogleLogin 
-        clientId="78743048336-gd5ub5rd5kth3l8e49ud6cq624nck819.apps.googleusercontent.com"
+        clientId = {config.client_id}
         buttonText="Login with Google Account"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
