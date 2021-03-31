@@ -4,7 +4,6 @@ import { GoogleLogin } from 'react-google-login';
 import { store } from '../store';
 import config from '../config';
 
-// require('dotenv').config();
 
 const Login = () => {
   const globalState = useContext(store);
@@ -16,27 +15,54 @@ const Login = () => {
         firstname: response.profileObj.givenName,
         lastname: response.profileObj.familyName,
         email: response.profileObj.email,
+        imageUrl: response.profileObj.imageUrl,
         loginRedirect: true
       }
       dispatch({ 
         type: 'SET_USER',
         payload
       });
-      // console.log('response.profileObj: ', response.profileObj)
+      console.log('response.profileObj: ', response.profileObj)
+
+      // Check existing user or create new user
+      
+    
+     //whether or not the user exists in our db
+      // if user has visited
+      // if user has not visited
+      const credentials = { 
+        firstname: payload.firstname,
+        lastname: payload.lastname,
+        email: payload.email,
+        imageUrl: payload.imageUrl,
+      };
+      console.log('CREDENTIALSSSSSS', credentials);
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+      }
+
+      fetch('/user', options)
+        .then(result => result.json())
+        .catch(err => console.log('error in post fetch on DB credential'));
+
     } else {
       console.log('User could not log in');
     }
   }
 
-  // console.log(globalState);
-  const { loginRedirect } = globalState.state;
-  if (loginRedirect) {
-    return <Redirect to='/profile'/>
-  }
 
-  //whether or not the user exists in our db
-    // if user has visited
-    // if user has not visited
+
+
+    // console.log(globalState);
+    const { loginRedirect } = globalState.state;
+    if (loginRedirect) {
+      return <Redirect to='/profile'/>
+    }
 
   return (
     <div>

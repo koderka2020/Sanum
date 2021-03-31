@@ -4,6 +4,7 @@ const initialState = {
   firstname: '',
   lastname: '',
   email: '',
+  imageUrl: '',
   loginRedirect: false
 };
 const store = createContext(initialState);
@@ -11,7 +12,6 @@ const { Provider } = store;
 
 const StateProvider = ( { children } ) => {
   const [state, dispatch] = useReducer((state, action) => {
-    console.log('state >>> ', state);  
 
     switch(action.type) {
       case 'SET_USER':
@@ -19,6 +19,7 @@ const StateProvider = ( { children } ) => {
           firstname: action.payload.firstname,
           lastname: action.payload.lastname,
           email: action.payload.email,
+          imageUrl: action.payload.imageUrl,
           loginRedirect: action.payload.loginRedirect
         }
         return newState;

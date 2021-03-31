@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
-const Profile = (props) => {
+const Profile = () => {
 
   // const message = () => {
   //   const statusMessage = 'this is temp test';
@@ -29,10 +29,7 @@ const Profile = (props) => {
 
   return (
     <div>
-
-      <Link to='/feed'>
-        go to feed
-      </Link>
+      <Navbar/>
 
       <div id= 'status-message' >
         {/* <h2>{statusMessage}</h2> */}
@@ -51,7 +48,7 @@ const Profile = (props) => {
         {/* {this.props.state.totalIntake} */}
       </div>
       <div id='pics'>
-        <img id='biking' src='./Assets/cycling.png' alt= 'biking'/>
+        <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
         <img src='' alt= 'running'/>
         <img src='' alt= 'swimming'/>
         <img src='' alt= 'lifting'/>
@@ -61,9 +58,7 @@ const Profile = (props) => {
       </div>
     </div>
     
-  );
-  // }
+  )
 };
-
 
 export default Profile;

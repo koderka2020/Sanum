@@ -1,7 +1,6 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-
 const pool = new Pool ({
   connectionString: process.env.PG_URI
 });
@@ -15,10 +14,9 @@ const pool = new Pool ({
 // })
 
 
-
-
 module.exports = {
   query: (text, params, callback) => {
+    // console.log('execute param', params);
     console.log('execute query', text);
     return pool.query(text, params, callback);
   }

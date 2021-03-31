@@ -2,46 +2,75 @@ const db = require('../models/model');
 
 const userController = {
   getUsers: (req, res, next) => {
-    const queryStr = `select * from user;`;
+    const queryStr = `select * from users;`;
 
     db.query(queryStr)
-      .then(data => {
+      .then((data) => {
         res.locals.user = data.rows;
         return next();
       })
-      .catch(error => next({
-        message: { err: `Error occurred in userController.getUsers: ${error}` },
-      }))
+      .catch((error) =>
+        next({
+          message: { err: `Error occurred in userController.getUsers: ${error}` },
+        })
+      );
+  },
+
+  searchUser: (req, res, next) => {
+    const { email } = req.body;
+    const params = [email];
+    const queryStr = `SELECT * FROM users WHERE email = $1`;
+    // const queryStr = `SELECT * FROM users;`
+
+    db.query(queryStr, params)
+      .then((data) => {
+        res.locals.user = data.rows;
+        return next();
+      })
+      .catch((error) =>
+        next({
+          message: { err: `Error occurred in userController.searchUser: ${error}` },
+        })
+      );
   },
 
   validateUser: (req, res, next) => {
-    //validate the body of the request
-    const body = req.body;
-    if (!body.name || !body.email || body.name.length === 0 || body.email.length === 0) return next({
-      message: { err: `Error occurred in userController.validateUser: invalid data`},
-    })
+    // console.log('validate user middleware >>> ', req.body);
+
+    // validate the body of the request
+    const { email, firstname, lastname, imageUrl } = req.body;
+    if (!firstname || !email || firstname.length === 0 || email.length === 0)
+      return next({
+        message: { err: `Error occurred in userController.validateUser: invalid data` },
+      });
     return next();
   },
 
   createUser: (req, res, next) => {
-    //validate the body of the request
-    const body = req.body;
-    const [first, last] = req.body.name.split(' ');
-    const queryStr = `insert into 
-    user (firstname, lastname,  email)
-    values ('$1', '$2', '$3') returning *;`;
-    
-    db.query(queryStr, [first, last, email])
-    .then(data => {
-      // console.log('Creating user >>> ', data.rows);
-      res.locals.new = data.rows;
-      return next();
-      })
-      .catch(error => next({
-        message: { err: `Error occurred in userController.createUser: ${error}` },
-      }))
-  },
+    // console.log('create user middleware >>> ', req.body);
+    // console.log('res.locals >>>>> ', res.locals);
+    // if user req.body.user returns truthy, immediately call next and skip creating a new user
+    if (res.locals.user.length > 0) return next();
+    // else
+    // validate the body of the request
+    const { firstname, lastname, email, imageUrl } = req.body;
+    const params = [firstname, lastname, email, imageUrl, 0];
+    console.log('params >>>>>', params);
 
+    const queryStr = `INSERT INTO users (firstname, lastname, email, picurl, caloricgoal) 
+    VALUES ($1, $2, $3, $4, $5) returning *`;
+
+    db.query(queryStr, params)
+      .then((data) => {
+        res.locals.user = data.rows;
+        return next();
+      })
+      .catch((error) =>
+        next({
+          message: { err: `Error occurred in userController.createUser: ${error}` },
+        })
+      );
+  },
 
   // updateUser: (req, res, next) => {
   //   const body = req.body;
@@ -49,11 +78,11 @@ const userController = {
   //   set name = '${body.name}', email = '${body.email}'
   //   where id = ${req.params.id}
   //   returning *;`;
-    
+
   //   db.query(queryStr)
   //     .then(data => {
   //       console.log('Updating client >>> ', data);
-  //       // if data.rows.length === 0, throw error because no match found 
+  //       // if data.rows.length === 0, throw error because no match found
   //       if (data.rows.length === 0) return next({
   //         message: { err: `Error occurred in userController.updateUser: client doesn't exist in database`},
   //       });
@@ -69,17 +98,18 @@ const userController = {
     const queryStr = `delete from user
     where id = ${req.params.id}
     returning *;`;
-    
+
     db.query(queryStr)
-      .then(data => {
+      .then((data) => {
         res.locals.deleted = data.rows;
         return next();
       })
-      .catch(error => next({
-        message: { err: `Error occurred in userController.deleteUser: ${error}` },
-      }))
-  }
-
+      .catch((error) =>
+        next({
+          message: { err: `Error occurred in userController.deleteUser: ${error}` },
+        })
+      );
+  },
 };
 
 module.exports = userController;

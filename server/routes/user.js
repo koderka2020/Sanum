@@ -11,10 +11,10 @@ router.get('/',
 
 router.post('/',
   userController.validateUser,
+  userController.searchUser,
   userController.createUser,
-  userController.getUsers,
   (req, res) => {
-    res.status(200).json({users: res.locals.users});
+    return res.status(200).json({users: res.locals.users});
   }
 );
 

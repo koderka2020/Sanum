@@ -4,7 +4,6 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-
 const userRouter = require('./routes/user');
 
 app.use(express.json());
@@ -31,7 +30,6 @@ app.get('/styles.scss',
 }
 );
 
-
 app.use('/user', userRouter);
 
 
@@ -46,7 +44,7 @@ app.use((err, req, res, next) => {
     message: { err: 'An error occurred' }, 
   };
   const errorObj = Object.assign({}, defaultErr, err); 
-  console.log(errorObj.log);
+  console.log(errorObj.message);
 
   return res.status(errorObj.status).json(errorObj.message.err);
 });
