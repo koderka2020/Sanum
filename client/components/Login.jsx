@@ -58,7 +58,7 @@ const Login = () => {
   // console.log(globalState);
   const { loginRedirect } = globalState.state;
   if (loginRedirect) {
-    return <Redirect to='/profile'/>
+    return <Redirect to='/profile'/>name
   }
 
   return (
