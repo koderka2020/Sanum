@@ -4,7 +4,6 @@ import { GoogleLogin } from 'react-google-login';
 import { store } from '../store';
 import config from '../config';
 
-
 const Login = () => {
   const globalState = useContext(store);
   const { dispatch } = globalState;
@@ -68,7 +67,7 @@ const Login = () => {
         buttonText="Login with Google Account"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
-        // isSignedIn={true}
+        isSignedIn={true}
         cookiePolicy={'single_host_origin'}
       />
     </div>

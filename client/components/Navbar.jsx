@@ -7,11 +7,15 @@ const NavBar = (props) => {
   // console.log('State read in Navbar >>> ', globalState); // this will return { color: red }
 
   return(
-    <div className= 'nav'>
+    <div className='nav'>
       <Link to= '/feed'> <button>Feed</button> </Link>
 
+      <div id='user'>
+        <Link to= '/profile'> <img id='profPic' src={globalState.state.imageUrl} alt='Profile Pic'/></Link>
+        <p>{globalState.state.firstname}</p>
+      </div>
+
       <div>
-        <Link to= '/profile'> <button>Profile</button></Link>
         <button>Log Out</button>
       </div>
     </div>

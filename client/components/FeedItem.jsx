@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-const FeedItems = (props) => {
+const FeedItem = (props) => {
 
   return (
-    <div>
+    <div className='feedItem'>
       <img src="src/cloud.png" alt="cloud" id ="cloud"/>
         <h3>
           username
@@ -24,4 +24,4 @@ const FeedItems = (props) => {
 };
 
 
-export default FeedItems;
+export default FeedItem;
