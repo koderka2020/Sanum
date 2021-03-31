@@ -57,7 +57,8 @@ const userController = {
     const params = [firstname, lastname, email, imageUrl, 0];
     console.log('params >>>>>', params);
 
-    const queryStr = `INSERT INTO users (firstname, lastname, email, picurl, caloricgoal) 
+    const queryStr = `INSERT INTO 
+    users (firstname, lastname, email, picurl, caloricgoal) 
     VALUES ($1, $2, $3, $4, $5) returning *`;
 
     db.query(queryStr, params)

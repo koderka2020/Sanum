@@ -12,7 +12,7 @@ const Login = () => {
   const responseGoogle = (response) => {
     if (response.profileObj){
       const payload = {
-        firstname: response.profileObj.givenName,
+        firstname: response.profileObj.givenName, 
         lastname: response.profileObj.familyName,
         email: response.profileObj.email,
         imageUrl: response.profileObj.imageUrl,
@@ -55,14 +55,11 @@ const Login = () => {
     }
   }
 
-
-
-
-    // console.log(globalState);
-    const { loginRedirect } = globalState.state;
-    if (loginRedirect) {
-      return <Redirect to='/profile'/>
-    }
+  // console.log(globalState);
+  const { loginRedirect } = globalState.state;
+  if (loginRedirect) {
+    return <Redirect to='/profile'/>
+  }
 
   return (
     <div>

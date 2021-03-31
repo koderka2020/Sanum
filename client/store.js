@@ -7,6 +7,7 @@ const initialState = {
   imageUrl: '',
   loginRedirect: false
 };
+
 const store = createContext(initialState);
 const { Provider } = store;
 

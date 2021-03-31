@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import Navbar from './Navbar';
+import { store } from '../store';
 
 const Profile = () => {
+  const globalState = useContext(store);
+  const { firstname, lastname } = globalState.state;
 
   // const message = () => {
   //   const statusMessage = 'this is temp test';
