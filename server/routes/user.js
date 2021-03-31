@@ -14,7 +14,6 @@ router.post('/',
   userController.searchUser,
   userController.createUser,
   (req, res) => {
-    console.log('last middleware');
     return res.status(200).json({users: res.locals.users});
   }
 );

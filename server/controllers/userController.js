@@ -45,9 +45,9 @@ const userController = {
 
   createUser: (req, res, next) => {
     console.log ('create user middleware >>> ', req.body);
-    console.log('res.locals>>>>>', res.locals)
+    console.log('res.locals >>>>> ', res.locals)
     // if user req.body.user returns truthy, immediately call next and skip creating a new user
-    // if (res.locals.user.length > 0) return next();
+    if (res.locals.user.length > 0) return next();
     // else
     //validate the body of the request
     const { firstname, lastname, email, imageUrl } = req.body;
@@ -58,7 +58,7 @@ const userController = {
     
     db.query(queryStr)
       .then(data => {
-        console.log('data.rows >>> ', data);
+        console.log('data.rows >>> ', data.rows);
         res.locals.user = data.rows;
         return next();
       })

@@ -50,7 +50,7 @@ const Profile = () => {
         {/* {this.props.state.totalIntake} */}
       </div>
       <div id='pics'>
-        <img id='biking' src='./Assets/cycling.png' alt= 'biking'/>
+        <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
         <img src='' alt= 'running'/>
         <img src='' alt= 'swimming'/>
         <img src='' alt= 'lifting'/>
