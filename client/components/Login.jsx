@@ -19,9 +19,7 @@ const Login = () => {
         type: 'SET_USER',
         payload
       });
-      // console.log('response:', response);
       // console.log('response.profileObj: ', response.profileObj)
-
     } else {
       console.log('User could not log in');
     }
