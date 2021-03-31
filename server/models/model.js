@@ -6,7 +6,7 @@ const pool = new Pool ({
   connectionString: process.env.PG_URI
 });
 
-
+// Test connection
 // pool.connect((err, client, release) => {
 //   if (err) {
 //     return console.error('Error acquiring client', err.stack)
