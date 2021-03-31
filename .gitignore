@@ -1,2 +1,8 @@
 node_modules/
+<<<<<<< HEAD
 build
+=======
+build/
+package-lock.json
+config.js
+>>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700

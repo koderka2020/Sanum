@@ -4,12 +4,19 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+<<<<<<< HEAD
 
 const userRouter = require('./routes/user');
 
+=======
+const userRouter = require('./routes/user');
+const postsRouter = require('./routes/posts');
+const commentsRouter = require('./routes/comments');
+const likesRouter = require('./routes/likes');
+>>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use('/src', express.static(path.resolve(__dirname, '../src')))
 
 app.get('/',
   (req, res) => {
@@ -23,17 +30,24 @@ app.get('/build/bundle.js',
   }
 );
 
-app.get('/styles.css',
+app.get('/styles.scss',
   (req, res) => {
     return res.set('Content-Type', 'text/css')
     .status(200)  
-    .sendFile(path.resolve(__dirname,'../build/styles.css'));
+    .sendFile(path.resolve(__dirname,'../src/styles.scss'));
 }
 );
 
+<<<<<<< HEAD
 
 app.use('/user', userRouter);
+=======
+>>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700
 
+app.use('/user', userRouter);
+app.use('/posts', postsRouter);
+app.use('/comments', commentsRouter);
+app.use('/likes', likesRouter);
 
 app.use('*', (req, res) => {
   res.status(404).send('Invalid route');
