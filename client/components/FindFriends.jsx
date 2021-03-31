@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 const FindFriends = (props) => {
-  return <div></div>;
+  return (
+  <div>
+        <p>This is FindFriends</p>
+  </div>
+  )
 }
 
 

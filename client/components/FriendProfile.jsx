@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 
 const FriendProfile = (props) => {
-  return <div></div>;
+  return (
+  <div>
+        <p>This is FriednProfile</p>
+  </div>
+  )
 }
 
 
