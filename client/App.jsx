@@ -22,7 +22,7 @@ const App = (props) => {
       <Feed />
     </div>
   )
-}
+
 
 
 
