@@ -4,10 +4,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-
-const quotesRouter = require('./routes/quotes');
-const clientsRouter = require('./routes/clients');
-const photoboothsRouter = require('./routes/photobooths');
+const userRouter = require('./routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -33,12 +30,8 @@ app.get('/styles.scss',
 }
 );
 
-app.use('/quote', quotesRouter);
-app.use('/client', clientsRouter );
-app.use('/photobooth', photoboothsRouter );
 
-
-
+app.use('/user', userRouter);
 
 
 app.use('*', (req, res) => {

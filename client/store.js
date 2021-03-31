@@ -4,6 +4,7 @@ const initialState = {
   firstname: '',
   lastname: '',
   email: '',
+  imageUrl: '',
   loginRedirect: false
 };
 const store = createContext(initialState);
@@ -19,6 +20,7 @@ const StateProvider = ( { children } ) => {
           firstname: action.payload.firstname,
           lastname: action.payload.lastname,
           email: action.payload.email,
+          imageUrl: action.payload.imageUrl,
           loginRedirect: action.payload.loginRedirect
         }
         return newState;
