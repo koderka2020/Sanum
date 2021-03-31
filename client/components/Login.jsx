@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { store } from '../store';
 import config from '../config';
@@ -16,11 +16,11 @@ const Login = () => {
         firstname: response.profileObj.givenName,
         lastname: response.profileObj.familyName,
         email: response.profileObj.email,
-        loginRedirect: true
-      }
+        loginRedirect: true,
+      };
       dispatch({ 
         type: 'SET_USER',
-        payload
+        payload,
       });
       // console.log('response.profileObj: ', response.profileObj)
     } else {
@@ -49,8 +49,7 @@ const Login = () => {
         cookiePolicy={'single_host_origin'}
       />
     </div>
-  )
-    
+  );
 }
 
 export default Login;
