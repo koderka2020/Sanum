@@ -1,8 +1,5 @@
 node_modules/
-<<<<<<< HEAD
-build
-=======
 build/
 package-lock.json
 config.js
->>>>>>> a5ab55bff3035803a007fafb6e26037f7a2acae6
+.env

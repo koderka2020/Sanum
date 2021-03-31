@@ -28,7 +28,6 @@ const Profile = (props) => {
   // }
 
   return (
-
     <div>
 
       <Link to='/feed'>
