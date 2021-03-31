@@ -14,7 +14,7 @@ const fetchFeed = () => {
   // fetch all posts data
 
   // iterate through each post, push the data into a feedItem component
-  // at the same time, 
+  // at the same time, calculate the total 
 }
 
 const Feed = (props) => {
