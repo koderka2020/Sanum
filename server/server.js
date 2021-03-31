@@ -11,7 +11,7 @@ const photoboothsRouter = require('./routes/photobooths');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use('/src', express.static(path.resolve(__dirname, '../src')))
 
 app.get('/',
   (req, res) => {
@@ -25,11 +25,11 @@ app.get('/build/bundle.js',
   }
 );
 
-app.get('/styles.css',
+app.get('/styles.scss',
   (req, res) => {
     return res.set('Content-Type', 'text/css')
     .status(200)  
-    .sendFile(path.resolve(__dirname,'../build/styles.css'));
+    .sendFile(path.resolve(__dirname,'../src/styles.scss'));
 }
 );
 

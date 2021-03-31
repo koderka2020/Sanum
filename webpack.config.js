@@ -42,6 +42,7 @@ module.exports = {
     // publicPath: '/build',
     proxy: {
       '/': 'http://localhost:3000',
+      '/images': 'http://localhost:3000',
       // '/client': 'http://localhost:3000',
       // '/photobooth': 'http://localhost:3000',
     },
