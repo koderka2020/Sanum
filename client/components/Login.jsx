@@ -1,23 +1,36 @@
 import React, { useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { store } from '../store';
 
-const Login = (props) => {
+const Login = () => {
   const globalState = useContext(store);
   const { dispatch } = globalState;
 
   const responseGoogle = (response) => {
-    const payload = {
-      firstname: response.profileObj.givenName,
-      lastname: response.profileObj.familyName,
-      email: response.profileObj.email
+    if (response.profileObj){
+      const payload = {
+        firstname: response.profileObj.givenName,
+        lastname: response.profileObj.familyName,
+        email: response.profileObj.email,
+        loginRedirect: true
+      }
+      dispatch({ 
+        type: 'SET_USER',
+        payload
+      });
+      // console.log('response:', response);
+      // console.log('response.profileObj: ', response.profileObj)
+
+    } else {
+      console.log('User could not log in');
     }
-    dispatch({ 
-      type: 'SET_USER',
-      payload
-    });
-    // console.log('response:', response);
-    console.log('response.profileObj: ', response.profileObj)
+  }
+
+  // console.log(globalState);
+  const { loginRedirect } = globalState.state;
+  if (loginRedirect) {
+    return <Redirect to='/profile'/>
   }
 
   //whether or not the user exists in our db

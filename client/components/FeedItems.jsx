@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 const FeedItems = (props) => {
-  return <div></div>;
+  return (
+  <div>    
+    <p>This is FeedItems</p>
+  </div>
+  )
 };
 
 

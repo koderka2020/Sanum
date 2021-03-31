@@ -1,2 +1,4 @@
 node_modules/
 OAuth.json
+build/
+package-lock.json

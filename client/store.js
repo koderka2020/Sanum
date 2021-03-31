@@ -4,6 +4,7 @@ const initialState = {
   firstname: '',
   lastname: '',
   email: '',
+  loginRedirect: false
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -18,6 +19,7 @@ const StateProvider = ( { children } ) => {
           firstname: action.payload.firstname,
           lastname: action.payload.lastname,
           email: action.payload.email,
+          loginRedirect: action.payload.loginRedirect
         }
         return newState;
   
