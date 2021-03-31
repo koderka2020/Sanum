@@ -22,10 +22,7 @@
   "dependencies": {
     "assert": "^2.0.0",
     "dotenv": "^8.2.0",
-<<<<<<< HEAD
-=======
     "bootstrap": "^4.6.0",
->>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700
     "express": "^4.17.1",
     "node-sass": "^5.0.0",
     "nodemailer": "^6.4.18",
