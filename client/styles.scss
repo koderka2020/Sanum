@@ -54,6 +54,10 @@ body {
   margin: 5px 0px 0px 0px;
 }
 
+#feedlogo {
+  height: 60px;
+}
+
 #profPic {
   width: 40px;
   height: 40px;
@@ -64,9 +68,31 @@ body {
   flex-grow: 0;
 }
 
+#logout-btn {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#logout-btn:hover {
+  opacity: 1
+}
+
 .feed-container {
   height: 100vh;
   width: 100vw;
+  background-image: url('../src/background.png');
+  background-repeat: no-repeat;
+  background-size: 100vw;
 }
 
 .inputs-container{
@@ -85,7 +111,7 @@ body {
 .feed {
   display: flex;
   flex-direction: column;
-  margin: 0 15% 0 5%;
+  margin: 2% 15% 0 5%;
   flex-grow: 2;
   justify-content: space-around;
 }

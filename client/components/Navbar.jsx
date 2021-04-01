@@ -9,7 +9,7 @@ const NavBar = (props) => {
   return(
     <div className='nav'>
       <div id='nav-feed'>
-        <Link to= '/feed'> <button>Feed</button> </Link>
+        <Link to= '/feed'><img id='feedlogo' src='../../src/feed.png' alt='Feed Logo'/> </Link>
       </div> 
 
       <div id='nav-user'>
@@ -18,7 +18,7 @@ const NavBar = (props) => {
       </div>
 
       <div id='nav-logout'>
-        <Link exact to='/'><button>Log Out</button></Link>
+        <Link exact to='/'><button id='logout-btn'>Log Out</button></Link>
       </div>
     </div>
   )
