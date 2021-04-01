@@ -4,31 +4,44 @@ const initialState = {
   firstname: '',
   lastname: '',
   email: '',
-  loginRedirect: false
+  imageUrl: '',
+  loginRedirect: false,
+  totalIntake: 0,
+  caloriesBurnt: 0,
+  goal: 0,
 };
+
 const store = createContext(initialState);
 const { Provider } = store;
 
-const StateProvider = ( { children } ) => {
+const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
-    console.log('state >>> ', state);  
-
-    switch(action.type) {
+    let newState;
+    switch (action.type) {
       case 'SET_USER':
-        const newState = {
+        newState = {
+          ...state,
           firstname: action.payload.firstname,
           lastname: action.payload.lastname,
           email: action.payload.email,
-          loginRedirect: action.payload.loginRedirect
-        }
+          imageUrl: action.payload.imageUrl,
+          loginRedirect: action.payload.loginRedirect,
+        };
         return newState;
-  
+
+      case 'SET_CALORIC_GOAL':
+        newState = {
+          ...state,
+          goal: action.payload.goal,
+        };
+        return newState;
+
       default:
-        throw new Error();
-    };
+        return state;
+    }
   }, initialState);
 
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
-export { store, StateProvider }
+export { store, StateProvider };

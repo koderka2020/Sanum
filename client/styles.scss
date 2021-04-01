@@ -2,3 +2,13 @@
 body {
   background-color: pink;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#pics {
+  width: 300px;
+  height: 300px;
+}

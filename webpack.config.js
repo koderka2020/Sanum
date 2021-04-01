@@ -52,11 +52,11 @@ module.exports = {
     // fallback to root for other urls
     // historyApiFallback: true,
 
-    // publicPath: '/build',
+    publicPath: '/build',
     proxy: {
       '/': 'http://localhost:3000',
       '/images': 'http://localhost:3000',
-      // '/client': 'http://localhost:3000',
+      '/user': 'http://localhost:3000',
       // '/photobooth': 'http://localhost:3000',
     },
   },

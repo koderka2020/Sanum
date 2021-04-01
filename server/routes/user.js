@@ -14,18 +14,18 @@ router.post('/',
   userController.searchUser,
   userController.createUser,
   (req, res) => {
-    res.status(200).json({users: res.locals.users});
+    return res.status(200).json({users: res.locals.users});
   }
 );
 
-// router.patch('/:id',
-//   userController.updateUser,
-//   (req, res) => {
-//     res.status(200).json({
-//       updated: res.locals.new
-//     })
-//   }
-// );
+router.patch('/',
+  userController.updateUser,
+  (req, res) => {
+    res.status(200).json({
+      user: res.locals.user
+    })
+  }
+);
 
 
 

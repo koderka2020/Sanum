@@ -13,10 +13,10 @@ import Login from './components/Login';
 // import FriendProfile from './components/FriendProfile';
 // import FeedItems from './components/FeedItems';
 // import FeedPopUp from './components/FeedPopUp';
-import { store, StateProvider } from './store';
+import { StateProvider } from './store';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <StateProvider>
       <Router>

@@ -4,10 +4,12 @@ import NewMeal from './NewMeal';
 import NewExercise from './NewExercise';
 import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
+import Navbar from './Navbar';
 
 const Feed = (props) => {
   return (
     <div>
+      <Navbar/>
       <Popup trigger={<button> New Meal</button>} position="right center" modal>
         <div>
           <NewMeal />
