@@ -11,13 +11,8 @@ router.get('/',
 
 router.post('/',
   userController.validateUser,
-<<<<<<< HEAD
-  userController.createUser,
-  userController.getUsers,
-=======
   userController.searchUser,
   userController.createUser,
->>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700
   (req, res) => {
     res.status(200).json({users: res.locals.users});
   }

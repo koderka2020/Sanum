@@ -4,16 +4,10 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-<<<<<<< HEAD
-
-const userRouter = require('./routes/user');
-
-=======
 const userRouter = require('./routes/user');
 const postsRouter = require('./routes/posts');
-const commentsRouter = require('./routes/comments');
-const likesRouter = require('./routes/likes');
->>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700
+// const commentsRouter = require('./routes/comments');
+// const likesRouter = require('./routes/likes');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/src', express.static(path.resolve(__dirname, '../src')))
@@ -38,16 +32,12 @@ app.get('/styles.scss',
 }
 );
 
-<<<<<<< HEAD
 
-app.use('/user', userRouter);
-=======
->>>>>>> 87c66203499cc3b2e2f3ffad870ecacc0f681700
 
 app.use('/user', userRouter);
 app.use('/posts', postsRouter);
-app.use('/comments', commentsRouter);
-app.use('/likes', likesRouter);
+// app.use('/comments', commentsRouter);
+// app.use('/likes', likesRouter);
 
 app.use('*', (req, res) => {
   res.status(404).send('Invalid route');
