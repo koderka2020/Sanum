@@ -18,7 +18,7 @@ const NavBar = (props) => {
       </div>
 
       <div id='nav-logout'>
-        <Link exact to='/'><button id='logout-btn'>Log Out</button></Link>
+        <Link to='/'><button id='logout-btn'>Log Out</button></Link>
       </div>
     </div>
   )
