@@ -8,18 +8,23 @@ const NavBar = (props) => {
 
   return(
     <div className='nav'>
-      <div id='nav-feed'>
-        <Link to= '/feed'><img id='feedlogo' src='../../src/feed.png' alt='Feed Logo'/> </Link>
-      </div> 
+      <div id='sanum'><h2>Sanum</h2></div>
 
-      <div id='nav-user'>
-        <Link to= '/profile'> <img id='profPic' src={globalState.state.imageUrl} alt='Profile Pic'/></Link>
-        <p>{globalState.state.firstname}</p>
+      <div className='nav-icons'>
+        <div id='nav-feed'>
+          <Link to= '/feed'><img id='feedlogo' src='../../src/feed.png' alt='Feed Logo'/> </Link>
+        </div> 
+
+        <div id='nav-user'>
+          <Link to= '/profile'> <img id='profPic' src={globalState.state.imageUrl} alt='Profile Pic'/></Link>
+          <p>{globalState.state.firstname}</p>
+        </div>
+
+        <div id='nav-logout'>
+          <Link to='/'><button id='logout-btn'>Log Out</button></Link>
+        </div>
       </div>
 
-      <div id='nav-logout'>
-        <Link to='/'><button id='logout-btn'>Log Out</button></Link>
-      </div>
     </div>
   )
 }

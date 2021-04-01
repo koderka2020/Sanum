@@ -1,5 +1,9 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
 body {
-  background-color: rgb(250, 249, 221);
+  background-color: rgb(255, 240, 181);
   height: 100vh;
   width: 100vw;
   margin: 0px;
@@ -14,6 +18,18 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+}
+
+button {
+  background-color: #58b35b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .login {
@@ -36,18 +52,29 @@ body {
   padding: 10px;
 }
 
+#sanum {
+  display: flex;
+  flex-grow: 12;
+  margin: 0px 0px 0px 15px;
+  color: rgb(14, 43, 69)
+}
+
+.nav-icons {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 #nav-feed {
   display: flex;
-  // flex-grow: 2;
-  // justify-content: space-evenly;
 }
 
 #nav-user {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
-  // flex-grow: 2;
 }
 
 #nav-user > p {
@@ -69,12 +96,12 @@ body {
 }
 
 #logout-btn {
-  background-color: #f07049;
+  background-color: #e7e7e7;
   border: none;
-  color: white;
-  padding: 16px 32px;
+  color: rgb(14, 43, 69);
+  padding: 8px 16px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   opacity: 0.6;
   transition: 0.3s;
@@ -136,4 +163,9 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 30% 0 30%;
+}
+
+.modal {
+  background-color: rgb(255, 251, 234);
+  padding: 199px 250px;
 }

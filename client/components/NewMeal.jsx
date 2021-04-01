@@ -2,33 +2,43 @@ import React, {Component} from 'react';
 
 const NewMeal = (props) => {
   return (
-    <form>
+    <div className='modal'>
+      <h2>Enter new meal!</h2>
+      <br></br>
+
       <label>
         Meal Name:
         <input type="text" />
       </label>
+      <br></br><br></br>
       <label>
-        Calories
+        Calories:
         <input type="text" />
       </label>
+      <br></br><br></br>
       <label>
         Carbohydrates:
         <input type="text" />
       </label>
+      <br></br><br></br>
       <label>
         Protein:
         <input type="text" />
       </label>
+      <br></br><br></br>
       <label>
         Sodium:
         <input type="text" />
       </label>
+      <br></br><br></br>
       <label>
         Caption:
         <input type="text" />
       </label>
-      <input type="submit" value="Post" />
-    </form>
+      <br></br><br></br>
+
+      <button type="button">Submit</button> 
+    </div>
   );
 };
 

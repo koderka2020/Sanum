@@ -19,7 +19,7 @@ const userController = {
   searchUser: (req, res, next) => {
     const { email } = req.body;
     const params = [email];
-    const queryStr = `SELECT * FROM users WHERE email = $1`;
+    const queryStr = `SELECT * FROM users WHERE email = $1;`;
     // const queryStr = `SELECT * FROM users;`
 
     db.query(queryStr, params)
@@ -59,7 +59,7 @@ const userController = {
 
     const queryStr = `INSERT INTO 
     users (firstname, lastname, email, picurl, caloricgoal) 
-    VALUES ($1, $2, $3, $4, $5) returning *`;
+    VALUES ($1, $2, $3, $4, $5) returning *;`;
 
     db.query(queryStr, params)
       .then((data) => {
