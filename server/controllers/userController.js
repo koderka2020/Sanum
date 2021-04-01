@@ -73,27 +73,29 @@ const userController = {
       );
   },
 
-  // updateUser: (req, res, next) => {
-  //   const body = req.body;
-  //   const queryStr = `update user
-  //   set name = '${body.name}', email = '${body.email}'
-  //   where id = ${req.params.id}
-  //   returning *;`;
+  updateUser: (req, res, next) => {
+    const {email, goal} = req.body;
+    const params =[goal, email];
+    const queryStr = `UPDATE users SET caloricgoal = $1 WHERE email = $2 RETURNING *;`//returning * returns the updated row
 
-  //   db.query(queryStr)
-  //     .then(data => {
-  //       console.log('Updating client >>> ', data);
-  //       // if data.rows.length === 0, throw error because no match found
-  //       if (data.rows.length === 0) return next({
-  //         message: { err: `Error occurred in userController.updateUser: client doesn't exist in database`},
-  //       });
-  //       res.locals.updated = data.rows;
-  //       return next();
-  //     })
-  //     .catch(error => next({
-  //       message: { err: `Error occurred in userController.updateUser: ${error}`},
-  //     }))
-  // },
+    // set name = '${body.name}', email = '${body.email}'
+    // where id = ${req.params.id}
+    // returning *;`;
+
+    db.query(queryStr, params)
+      .then(data => {
+        // console.log('Updating client >>> ', data.rows);
+        // if data.rows.length === 0, throw error because no match found
+        if (data.rows.length === 0) return next({
+          message: { err: `Error occurred in userController.updateUser: user doesn't exist in database`},
+        });
+        res.locals.user = data.rows;
+        return next();
+      })
+      .catch(error => next({
+        message: { err: `Error occurred in userController.updateUser: ${error}`},
+      }))
+  },
 
   deleteUser: (req, res, next) => {
     const queryStr = `delete from user

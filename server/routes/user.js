@@ -18,14 +18,14 @@ router.post('/',
   }
 );
 
-// router.patch('/:id',
-//   userController.updateUser,
-//   (req, res) => {
-//     res.status(200).json({
-//       updated: res.locals.new
-//     })
-//   }
-// );
+router.patch('/',
+  userController.updateUser,
+  (req, res) => {
+    res.status(200).json({
+      user: res.locals.user
+    })
+  }
+);
 
 
 

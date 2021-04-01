@@ -29,30 +29,38 @@ const Profile = () => {
 
 
   const updateGoal = () => {
-    // clear input field
-    const inputField = document.getElementById('goal');
-    inputField.value = '';
-    
-    // reset the useState
-    setUserGoal('');
-
     // dispatch Action
     const payload = {
       goal: Number.parseInt(userGoal),   // << need the value from the input field 
-    }
-    
+    };
+
     dispatch({
-      type:'SET_CALORIC_GOAL',
+      type: 'SET_CALORIC_GOAL',
       payload,
     });
 
-    fetch('/userTable',{
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify({goal: payload.userGoal}),
-    })
-  }
+    const option = {
+      email,
+      goal: Number.parseInt(userGoal),
+    };
 
+    fetch('/user',{
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(option),
+    })
+      .then(result => result.json())
+      .then(result => console.log('Updated user >>> ', result.user.caloricgoal))
+      .catch(err => console.log('error in post fetch on DB credential'));
+
+    // clear input field
+    const inputField = document.getElementById('goal');
+    inputField.value = '';
+    // reset the useState
+    setUserGoal('');
+  };
 
   return (
     <div>
