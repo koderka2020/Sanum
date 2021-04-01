@@ -64,6 +64,8 @@ const Profile = () => {
 
   return (
     <div>
+      <Link to='/feed'>Feed</Link>
+
       {/* <Navbar/> */}
       <div id='personalInfo'>
         <p>

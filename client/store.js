@@ -9,6 +9,7 @@ const initialState = {
   totalIntake: 0,
   caloriesBurnt: 0,
   goal: 0,
+  userId: '',
 };
 
 const store = createContext(initialState);
@@ -26,6 +27,7 @@ const StateProvider = ({ children }) => {
           email: action.payload.email,
           imageUrl: action.payload.imageUrl,
           loginRedirect: action.payload.loginRedirect,
+          userId: action.payload.userId,
         };
         return newState;
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const FeedItems = (props) => {
+const FeedItem = (props) => {
 
   return (
     <div>
@@ -24,4 +24,4 @@ const FeedItems = (props) => {
 };
 
 
-export default FeedItems;
+export default FeedItem;
