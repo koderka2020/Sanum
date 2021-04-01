@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-// import Navbar from './Navbar';
+import Navbar from './Navbar';
 import { store } from '../store';
 
 const Profile = () => {
@@ -60,11 +60,19 @@ const Profile = () => {
     inputField.value = '';
     // reset the useState
     setUserGoal('');
+
+    // const newgoal= document.getElementById('newgoal').value;
+    // const burnt= document.getElementById('burnt').value;
+    // const intake= document.getElementById('intake').value;
+
+
+
+
   };
 
   return (
     <div>
-      {/* <Navbar/> */}
+      <Navbar/>
       <div id='personalInfo'>
         <p>
           <h4>First Name: <span style={{ color: 'green' }}>{firstname}</span></h4>
@@ -92,18 +100,27 @@ const Profile = () => {
       </div>
 
       <div>
-        <h3>Current Goal: {goal}</h3>
-        <h3>Burnt Calories: {caloriesBurnt}</h3>
-        <h3> Calorie Intake: {totalIntake}</h3>
+        <h3 id='newgoal'>Current Goal: {goal}</h3>
+        <h3 id='burnt'>Burnt Calories: {caloriesBurnt}</h3>
+        <h3 id='intake'> Calorie Intake: {totalIntake}</h3>
       </div>
-      
-      <div id='pics'>
-        <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
-        <img id='run' src='src/run.jpg' alt= 'running'/>
-        <img id='swim' src='src/swimmer.jpg' alt= 'swimming'/>
-        <img id='lift' src='src/lifting.jpg' alt= 'lifting'/>
+
+      {/* <div id= 'row'> */}
+        <div id='pics'>
+          {/* <img id='biking' src='src/cycling.jpg' alt= 'biking' />
+          <img id='run' src='src/run.jpg' alt= 'running'/> */}
+          <img id='swim' src='src/swimmer.jpg' alt= 'swimming'/>
+          {/* <img id='lift' src='src/lifting.jpg' alt= 'lifting'/>
+        </div>
+
+        <div id='pics'>
+          <img id='climb' src='src/climbing.jpg' alt= 'climbing' />
+          <img id='bike' src='src/cyclist.jpg' alt= 'cyclist'/>
+          <img id='dance' src='src/Two_dancers.jpg' alt= 'dancers'/>
+        </div> */}
       </div>
-      
+
+    
       <div id= 'encourage'>
         <h3>Keep Up The Good Work!</h3>
       </div>

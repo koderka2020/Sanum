@@ -1,14 +1,175 @@
-
 body {
-  background-color: pink;
+  background-color: rgb(250, 249, 221);
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#root {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#google-btn {
+  margin: 0px 50px;
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(255, 234, 152);
+  margin: 0px;
+  padding: 10px;
 }
 
-#pics {
-  width: 300px;
-  height: 300px;
+#nav-feed {
+  display: flex;
+  // flex-grow: 2;
+  // justify-content: space-evenly;
 }
+
+#nav-user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  // flex-grow: 2;
+}
+
+#nav-user > p {
+  margin: 5px 0px 0px 0px;
+}
+
+#feedlogo {
+  height: 60px;
+}
+
+#profPic {
+  width: 40px;
+  height: 40px;
+}
+
+#nav-logout {
+  display: flex;
+  // flex-grow: 0;
+}
+
+#logout-btn {
+  background-color: #f07049;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#logout-btn:hover {
+  opacity: 1
+}
+
+.feed-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../src/background.png');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.inputs-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 0 0 15%;
+  justify-content: space-around;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 15% 0 5%;
+  flex-grow: 2;
+  justify-content: space-around;
+}
+
+.feedItem {
+
+}
+
+.feedItem > img{
+  width: 100%;
+}
+
+.profile-container{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../src/background.png');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30% 0 30%;
+}
+
+// .row {
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding: 0 4px;
+//   height: 100px;
+//   width: 100px;
+// }
+
+// .pics {
+//   flex: 50%;
+//   max-width: 50%;
+//   padding: 0 4px;
+// }
+
+// .pics img {
+//   margin-top: 8px;
+//   vertical-align: middle;
+//   width: 100%;
+// }
+
+// /* Responsive layout - makes a two column-layout instead of four columns */
+// @media screen and (max-width: 800px) {
+//   .pics {
+//     flex: 50%;
+//     max-width: 50%;
+//   }
+// }
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+// @media screen and (max-width: 600px) {
+//   .pics {
+//     flex: 100%;
+//     max-width: 100%;
+//   }
+// }
