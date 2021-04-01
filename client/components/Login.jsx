@@ -17,10 +17,7 @@ const Login = () => {
         imageUrl: response.profileObj.imageUrl,
         loginRedirect: true
       }
-      dispatch({ 
-        type: 'SET_USER',
-        payload
-      });
+  
       console.log('response.profileObj: ', response.profileObj)
 
       // Check existing user or create new user
@@ -47,6 +44,26 @@ const Login = () => {
 
       fetch('/user', options)
         .then(result => result.json())
+        .then(result => { 
+          console.log('fetch result >>> ', result);
+
+          dispatch({ 
+            type: 'SET_USER',
+            payload: {
+              ...payload,
+              userId: result.user[0].userid,
+            }
+          });
+
+          //dispatch the caloric goal
+          dispatch({ 
+            type: 'SET_CALORIC_GOAL',
+            payload: {
+              ...payload,
+              goal: result.user[0].caloricgoal,
+            }
+          });
+        })
         .catch(err => console.log('error in post fetch on DB credential'));
 
     } else {

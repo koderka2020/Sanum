@@ -9,6 +9,7 @@ const initialState = {
   totalIntake: 0,
   caloriesBurnt: 0,
   goal: 0,
+  userId: '',
 };
 
 const store = createContext(initialState);
@@ -17,6 +18,7 @@ const { Provider } = store;
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     let newState;
+    console.log('state>>>>>>>>>', state)
     switch (action.type) {
       case 'SET_USER':
         newState = {
@@ -26,6 +28,7 @@ const StateProvider = ({ children }) => {
           email: action.payload.email,
           imageUrl: action.payload.imageUrl,
           loginRedirect: action.payload.loginRedirect,
+          userId: action.payload.userId,
         };
         return newState;
 
