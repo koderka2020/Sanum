@@ -13,6 +13,7 @@ const { Provider } = store;
 
 const StateProvider = ( { children } ) => {
   const [state, dispatch] = useReducer((state, action) => {
+    console.log('state >>> ', state);
 
     switch(action.type) {
       case 'SET_USER':

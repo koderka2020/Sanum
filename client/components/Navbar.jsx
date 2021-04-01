@@ -1,10 +1,31 @@
 import React, { Component, useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { store } from '../store';
-import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
   const globalState = useContext(store);
-  // console.log('State read in Navbar >>> ', globalState); // this will return { color: red }
+  const { dispatch } = globalState;
+
+  const logOut = (response) => {
+    const payload = {
+      firstname: '', 
+      lastname: '',
+      email: '',
+      imageUrl: '',
+      loginRedirect: false
+    }
+    dispatch({ 
+      type: 'SET_USER',
+      payload
+    });
+    
+  }
+   // console.log(globalState);
+   const { loginRedirect } = globalState.state;
+   if (!loginRedirect) {
+     return <Redirect exact to='/'/>
+   }
+
 
   return(
     <div className='nav'>
@@ -21,7 +42,7 @@ const NavBar = (props) => {
         </div>
 
         <div id='nav-logout'>
-          <Link to='/'><button id='logout-btn'>Log Out</button></Link>
+          <button id='logout-btn' onClick={logOut}>Log Out</button>
         </div>
       </div>
 

@@ -69,7 +69,7 @@ const Login = () => {
           buttonText="Login with Google Account"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
-          isSignedIn={true}
+          // isSignedIn={true}
           cookiePolicy={'single_host_origin'}
         />
       </div>
