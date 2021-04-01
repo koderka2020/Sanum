@@ -1,4 +1,4 @@
-import React, { useContext, userState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 // import Navbar from './Navbar';
 import { store } from '../store';
@@ -9,15 +9,16 @@ const Profile = () => {
   const { dispatch } = globalState;
   // user useState to take value of goal input field 
   //useState hook here 
-  const [userGoal, setUserGoal ] = useState('');
+  const [userGoal, setUserGoal] = useState('');
+  console.log('User input for goal >>> ', userGoal);
 
   const message = () => {
-    const statusMessage = '';
-    let stats = caloriesBurnt + goal - totalIntake ;
-    if ( stats === 0){
+    let statusMessage = '';
+    const stats = caloriesBurnt + goal - totalIntake;
+    if (stats > 0){
       statusMessage = 'You achieved your weekly goal!';
-      alert('Celebrate! You achieved your weekly goal!');
-    } else if ( stats < 0){
+      // alert('Celebrate! You achieved your weekly goal!');
+    } else if (stats < 0){
       statusMessage = `You have ${stats} calories to go!`;
     } else {
       statusMessage = `You have exceeded your goals by ${stats} calories!!!`
@@ -28,21 +29,28 @@ const Profile = () => {
 
 
   const updateGoal = () => {
+    // clear input field
+    const inputField = document.getElementById('goal');
+    inputField.value = '';
+    
+    // reset the useState
+    setUserGoal('');
+
+    // dispatch Action
     const payload = {
       goal: Number.parseInt(userGoal),   // << need the value from the input field 
     }
-
+    
     dispatch({
       type:'SET_CALORIC_GOAL',
-      payload
+      payload,
     });
 
-    fetch('/userTable' ,{
+    fetch('/userTable',{
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify({goal: payload.userGoal})
+      body:JSON.stringify({goal: payload.userGoal}),
     })
-
   }
 
 
@@ -51,37 +59,47 @@ const Profile = () => {
       {/* <Navbar/> */}
       <div id='personalInfo'>
         <p>
-          First Name: <span style={{color:'green'}}>{firstname}</span></br>
-          Last Name: <span style={{color:'green'}}>{lastname}</span></br>
-          Email: <span style={{color:'green'}}>{email}</span></br>
+          <h4>First Name: <span style={{ color: 'green' }}>{firstname}</span></h4>
+          <h4>Last Name: <span style={{ color: 'green' }}>{lastname}</span></h4>
+          <h4>Email: <span style={{ color: 'green' }}>{email}</span></h4>
         </p>
       </div>
 
       <div id= 'status-message' >
-        <h2>{statusMessage}</h2>
+        <h2>{message()}</h2>
       </div>
+
       <div id= 'page'>
-        <form>
+        <div>
           <p>Set your weekly goal:</p>
-          <input type='text' className='form-control' id='goal' placeholder='Your weekly calorie goal'/>
-          <button id='add-goal' type='Submit' className='btn btn-secondary' onClick = {updateGoal}>Confirm</button>
-        </form>
+          <input
+            type="text"
+            className="form-control"
+            id="goal"
+            placeholder="Your weekly calorie goal"
+            onChange= { (event) => setUserGoal(event.target.value) }
+          />
+          <button id='add-goal' className='btn btn-secondary' onClick = {updateGoal}>Confirm</button>
+        </div>
       </div>
+
       <div>
+        <h3>Current Goal: {goal}</h3>
         <h3>Burnt Calories: {caloriesBurnt}</h3>
         <h3> Calorie Intake: {totalIntake}</h3>
       </div>
+      
       <div id='pics'>
         <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
-        <img id='' src='src/run.jpg' alt= 'running'/>
-        <img id='' src='src/swimmer.jpg' alt= 'swimming'/>
-        <img id='' src='src/lofting.jpg' alt= 'lifting'/>
+        <img id='run' src='src/run.jpg' alt= 'running'/>
+        <img id='swim' src='src/swimmer.jpg' alt= 'swimming'/>
+        <img id='lift' src='src/lifting.jpg' alt= 'lifting'/>
       </div>
-      <div id='encourage'>
+      
+      <div id= 'encourage'>
         <h3>Keep Up The Good Work!</h3>
       </div>
     </div>
-    
   )
 };
 

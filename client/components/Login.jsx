@@ -4,7 +4,6 @@ import { GoogleLogin } from 'react-google-login';
 import { store } from '../store';
 import config from '../config';
 
-
 const Login = () => {
   const globalState = useContext(store);
   const { dispatch } = globalState;
@@ -36,7 +35,7 @@ const Login = () => {
         email: payload.email,
         imageUrl: payload.imageUrl,
       };
-      console.log('CREDENTIALSSSSSS', credentials);
+      // console.log('CREDENTIALSSSSSS', credentials);
 
       const options = {
         method: 'POST',
@@ -58,19 +57,22 @@ const Login = () => {
   // console.log(globalState);
   const { loginRedirect } = globalState.state;
   if (loginRedirect) {
-    return <Redirect to='/profile'/>name
+    return <Redirect to='/profile'/>
   }
 
   return (
-    <div>
-      <GoogleLogin 
-        clientId = {config.client_id}
-        buttonText="Login with Google Account"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        // isSignedIn={true}
-        cookiePolicy={'single_host_origin'}
-      />
+    <div className='Login'>
+      <img id='logo' src='src/Sanum.png' alt= 'logo' width='500'/>
+      <div id='google-btn'>
+        <GoogleLogin 
+          clientId = {config.client_id}
+          buttonText="Login with Google Account"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          isSignedIn={true}
+          cookiePolicy={'single_host_origin'}
+        />
+      </div>
     </div>
   )
     
