@@ -57,7 +57,7 @@ module.exports = {
       '/': 'http://localhost:3000',
       '/images': 'http://localhost:3000',
       '/user': 'http://localhost:3000',
-      // '/photobooth': 'http://localhost:3000',
+      '/posts': 'http://localhost:3000',
     },
   },
 

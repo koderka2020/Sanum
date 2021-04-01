@@ -17,10 +17,7 @@ const Login = () => {
         imageUrl: response.profileObj.imageUrl,
         loginRedirect: true
       }
-      dispatch({ 
-        type: 'SET_USER',
-        payload
-      });
+  
       console.log('response.profileObj: ', response.profileObj)
 
       // Check existing user or create new user
@@ -35,7 +32,7 @@ const Login = () => {
         email: payload.email,
         imageUrl: payload.imageUrl,
       };
-      console.log('CREDENTIALSSSSSS', credentials);
+      // console.log('CREDENTIALSSSSSS', credentials);
 
       const options = {
         method: 'POST',
@@ -47,6 +44,17 @@ const Login = () => {
 
       fetch('/user', options)
         .then(result => result.json())
+        .then(result => { 
+          console.log('fetch result >>> ', result);
+
+          dispatch({ 
+            type: 'SET_USER',
+            payload: {
+              ...payload,
+              userId: result.user[0].userid,
+            }
+          });
+        })
         .catch(err => console.log('error in post fetch on DB credential'));
 
     } else {
@@ -69,7 +77,7 @@ const Login = () => {
           buttonText="Login with Google Account"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
-          // isSignedIn={true}
+          isSignedIn={true}
           cookiePolicy={'single_host_origin'}
         />
       </div>

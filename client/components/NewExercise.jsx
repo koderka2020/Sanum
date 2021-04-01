@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 const NewExercise = (props) => {
+
+  const [calories, setCalories] = useState('');
+  const [caption, setCaption] = useState('');
+
   return (
     <div className='modal'>
       <h2>Enter new Exercise!</h2>
@@ -26,6 +30,7 @@ const NewExercise = (props) => {
           Caption:
           <input type="text" />
         </label>
+
         <br></br><br></br>
 
         <button type="button">Submit</button> 
