@@ -74,8 +74,8 @@ const userController = {
   },
 
   updateUser: (req, res, next) => {
-    const {email, goal} = req.body;
-    const params =[goal, email];
+    const { email, goal } = req.body;
+    const params = [goal, email];
     const queryStr = `UPDATE users SET caloricgoal = $1 WHERE email = $2 RETURNING *;`//returning * returns the updated row
 
     // set name = '${body.name}', email = '${body.email}'

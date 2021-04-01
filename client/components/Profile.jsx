@@ -52,7 +52,7 @@ const Profile = () => {
       body: JSON.stringify(option),
     })
       .then(result => result.json())
-      .then(result => console.log('Updated user >>> ', result.user.caloricgoal))
+      .then(result => console.log('Updated user >>> ', result.user[0].caloricgoal))
       .catch(err => console.log('error in post fetch on DB credential'));
 
     // clear input field
@@ -71,58 +71,52 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div className='profile-container'>
       <Navbar/>
-      <div id='personalInfo'>
-        <p>
+
+      <div className='profile-box'>
+        <div id='personalInfo'>
           <h4>First Name: <span style={{ color: 'green' }}>{firstname}</span></h4>
           <h4>Last Name: <span style={{ color: 'green' }}>{lastname}</span></h4>
           <h4>Email: <span style={{ color: 'green' }}>{email}</span></h4>
-        </p>
-      </div>
-
-      <div id= 'status-message' >
-        <h2>{message()}</h2>
-      </div>
-
-      <div id= 'page'>
-        <div>
-          <p>Set your weekly goal:</p>
-          <input
-            type="text"
-            className="form-control"
-            id="goal"
-            placeholder="Your weekly calorie goal"
-            onChange= { (event) => setUserGoal(event.target.value) }
-          />
-          <button id='add-goal' className='btn btn-secondary' onClick = {updateGoal}>Confirm</button>
-        </div>
-      </div>
-
-      <div>
-        <h3 id='newgoal'>Current Goal: {goal}</h3>
-        <h3 id='burnt'>Burnt Calories: {caloriesBurnt}</h3>
-        <h3 id='intake'> Calorie Intake: {totalIntake}</h3>
-      </div>
-
-      {/* <div id= 'row'> */}
-        <div id='pics'>
-          {/* <img id='biking' src='src/cycling.jpg' alt= 'biking' />
-          <img id='run' src='src/run.jpg' alt= 'running'/> */}
-          <img id='swim' src='src/swimmer.jpg' alt= 'swimming'/>
-          {/* <img id='lift' src='src/lifting.jpg' alt= 'lifting'/>
         </div>
 
-        <div id='pics'>
-          <img id='climb' src='src/climbing.jpg' alt= 'climbing' />
-          <img id='bike' src='src/cyclist.jpg' alt= 'cyclist'/>
-          <img id='dance' src='src/Two_dancers.jpg' alt= 'dancers'/>
-        </div> */}
-      </div>
+        <div className='profile'>
+          <div id= 'status-message' >
+            <h2>{message()}</h2>
+          </div>
 
-    
-      <div id= 'encourage'>
-        <h3>Keep Up The Good Work!</h3>
+          <div id= 'page-center'>
+            <div>
+              <p>Set your weekly goal:</p>
+              <input
+                type="text"
+                className="form-control"
+                id="goal"
+                placeholder="Your weekly calorie goal"
+                onChange= { (event) => setUserGoal(event.target.value) }
+              />
+              <button id='add-goal' className='btn btn-secondary' onClick = {updateGoal}>Confirm</button>
+            </div>
+          </div>
+
+          <div>
+            <h3>Current Goal: {goal}</h3>
+            <h3>Burnt Calories: {caloriesBurnt}</h3>
+            <h3> Calorie Intake: {totalIntake}</h3>
+          </div>
+          
+          <div id='pics'>
+            <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
+            <img id='run' src='src/run.jpg' alt= 'running'/>
+            <img id='swim' src='src/swimmer.jpg' alt= 'swimming'/>
+            <img id='lift' src='src/lifting.jpg' alt= 'lifting'/>
+          </div>
+          
+          <div id= 'encourage'>
+            <h3>Keep Up The Good Work!</h3>
+          </div>
+        </div>
       </div>
     </div>
   )

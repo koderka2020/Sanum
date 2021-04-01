@@ -13,7 +13,7 @@ const postsController = {
       }))
   },
 
-    updatePosts: (req, res, next) => {
+  updatePosts: (req, res, next) => {
     console.log ('updatePosts middleware >>> ', req.body);
 
     const { caption, id } = req.body;
@@ -30,7 +30,7 @@ const postsController = {
       }))
   },
 
-  createPost: (req, res, next) => {
+  createPosts: (req, res, next) => {
     console.log ('create post middleware: ', req.body);
     console.log('res.locals: ', res.locals)
 
@@ -38,7 +38,9 @@ const postsController = {
     const params = [picUrl, userID, caption, postType, calories, timeStamp];
     console.log('params: ', params);
     
-    const queryStr =  `INSERT INTO Posts (picUrl, userID, caption, postType, calories, timeStamp) VALUES ($1, $2, $3, $4, $5, $6))`;
+    const queryStr =  `INSERT INTO 
+    Posts (picUrl, userID, caption, postType, calories, timeStamp) 
+    VALUES ($1, $2, $3, $4, $5, $6)`;
    
     db.query(queryStr, params)
     .then(data => {

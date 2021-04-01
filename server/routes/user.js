@@ -3,9 +3,9 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 
 router.get('/',
-  userController.getUsers,
+  userController.searchUser,
   (req, res) => {
-    res.status(200).json({users: res.locals.users});
+    res.status(200).json({user: res.locals.user});
   }
 );
 
@@ -14,20 +14,16 @@ router.post('/',
   userController.searchUser,
   userController.createUser,
   (req, res) => {
-    return res.status(200).json({users: res.locals.users});
+    res.status(200).json({user: res.locals.user});
   }
 );
 
 router.patch('/',
   userController.updateUser,
   (req, res) => {
-    res.status(200).json({
-      user: res.locals.user
-    })
+    res.status(200).json({user: res.locals.user})
   }
 );
-
-
 
 router.delete('/:id',
 userController.deleteUser,

@@ -1,5 +1,9 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
 body {
-  background-color: rgb(250, 249, 221);
+  background-color: rgb(255, 240, 181);
   height: 100vh;
   width: 100vw;
   margin: 0px;
@@ -14,6 +18,18 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+}
+
+button {
+  background-color: #58b35b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .login {
@@ -36,18 +52,29 @@ body {
   padding: 10px;
 }
 
+#sanum {
+  display: flex;
+  flex-grow: 12;
+  margin: 0px 0px 0px 15px;
+  color: rgb(14, 43, 69)
+}
+
+.nav-icons {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 #nav-feed {
   display: flex;
-  // flex-grow: 2;
-  // justify-content: space-evenly;
 }
 
 #nav-user {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
-  // flex-grow: 2;
 }
 
 #nav-user > p {
@@ -69,12 +96,12 @@ body {
 }
 
 #logout-btn {
-  background-color: #f07049;
+  background-color: #e7e7e7;
   border: none;
-  color: white;
-  padding: 16px 32px;
+  color: rgb(14, 43, 69);
+  padding: 8px 16px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   opacity: 0.6;
   transition: 0.3s;
@@ -132,44 +159,33 @@ body {
   background-size: 100vw;
 }
 
+.profile-box{
+  display: flex;
+}
+
+#personal-info{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 0 0 15%;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
-  margin: 0 30% 0 30%;
+  margin: 2% 15% 0 5%;
+  flex-grow: 2;
+  justify-content: space-around;
 }
 
-// .row {
-//   display: flex;
-//   flex-wrap: wrap;
-//   padding: 0 4px;
-//   height: 100px;
-//   width: 100px;
-// }
+.modal {
+  background-color: rgb(255, 251, 234);
+  padding: 199px 250px;
+}
 
-// .pics {
-//   flex: 50%;
-//   max-width: 50%;
-//   padding: 0 4px;
-// }
-
-// .pics img {
-//   margin-top: 8px;
-//   vertical-align: middle;
-//   width: 100%;
-// }
-
-// /* Responsive layout - makes a two column-layout instead of four columns */
-// @media screen and (max-width: 800px) {
-//   .pics {
-//     flex: 50%;
-//     max-width: 50%;
-//   }
-// }
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-// @media screen and (max-width: 600px) {
-//   .pics {
-//     flex: 100%;
-//     max-width: 100%;
-//   }
-// }
+#pics {
+  width: 300px;
+  height: 300px;
+}
