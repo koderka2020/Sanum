@@ -1,7 +1,7 @@
 import React, { Component, useContext, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import FeedItem from './FeedItem';
-import NewExcercise from './NewExercise';
+import NewExercise from './NewExercise';
 import NewMeal from './NewMeal';
 // import 'reactjs-popup/dist/index.css';
 import Navbar from './Navbar';

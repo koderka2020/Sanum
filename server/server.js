@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 const userRouter = require('./routes/user');
-// const postsRouter = require('./routes/posts');
+const postsRouter = require('./routes/posts');
 // const commentsRouter = require('./routes/comments');
 // const likesRouter = require('./routes/likes');
 app.use(express.json());
@@ -32,10 +32,8 @@ app.get('/styles.scss',
 }
 );
 
-
-
 app.use('/user', userRouter);
-// app.use('/posts', postsRouter);
+app.use('/posts', postsRouter);
 // app.use('/comments', commentsRouter);
 // app.use('/likes', likesRouter);
 
@@ -50,7 +48,7 @@ app.use((err, req, res, next) => {
     message: { err: 'An error occurred' }, 
   };
   const errorObj = Object.assign({}, defaultErr, err); 
-  console.log(errorObj.log);
+  console.log(errorObj.message);
 
   return res.status(errorObj.status).json(errorObj.message.err);
 });

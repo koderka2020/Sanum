@@ -1,58 +1,55 @@
-import React, {Component, useState} from 'react';
+import React, { Component, useState } from 'react';
 
 const NewMeal = (props) => {
   const [calories, setCalories] = useState('');
-   
+
   const [caption, setCaption] = useState('');
   const [picUrl, setPicUrl] = useState('');
-  function submitMeal(e){
+  function submitMeal(e) {
     const input = document.getElementById('img');
-  
+
     const data = {
       caption,
       calories,
       picUrl,
-      postType: 'meal'  ,
-      userID: 1,
-      timeStamp: 	'2021-03-31'
-    }
+      postType: 'meal',
+      userID: props.userId,
+      timeStamp: '2021-03-31',
+    };
     fetch('/posts', {
-      method: 'POST', 
+      method: 'POST',
       headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
 
   return (
     <div>
       <label>
         Calories
-        <input type="text" onChange= {event => setCalories(event.target.value)}/>
+        <input type="text" onChange={(event) => setCalories(event.target.value)} />
       </label>
       <label>
         Caption:
-        <input type="text" onChange= {event => setCaption(event.target.value)}/>
+        <input type="text" onChange={(event) => setCaption(event.target.value)} />
       </label>
       <label>
         picture Url:
-        <input type="text" onChange= {event => setPicUrl(event.target.value)}/>
+        <input type="text" onChange={(event) => setPicUrl(event.target.value)} />
       </label>
-      <input type="submit" value="Post" onClick = {submitMeal}/>
+      <input type="submit" value="Post" onClick={submitMeal} />
     </div>
   );
 };
-
-
-
 
 // const input = document.getElementById('img');
 
@@ -77,8 +74,5 @@ const NewMeal = (props) => {
 
 // // Event handler executed when a file is selected
 // const onSelectFile = () => upload(input.files[0]);
-
-
-
 
 export default NewMeal;
