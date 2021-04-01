@@ -8,15 +8,17 @@ const NavBar = (props) => {
 
   return(
     <div className='nav'>
-      <Link to= '/feed'> <button>Feed</button> </Link>
+      <div id='nav-feed'>
+        <Link to= '/feed'> <button>Feed</button> </Link>
+      </div> 
 
-      <div id='user'>
+      <div id='nav-user'>
         <Link to= '/profile'> <img id='profPic' src={globalState.state.imageUrl} alt='Profile Pic'/></Link>
         <p>{globalState.state.firstname}</p>
       </div>
 
-      <div>
-        <button>Log Out</button>
+      <div id='nav-logout'>
+        <Link exact to='/'><button>Log Out</button></Link>
       </div>
     </div>
   )

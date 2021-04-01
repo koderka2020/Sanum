@@ -61,15 +61,18 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <GoogleLogin 
-        clientId = {config.client_id}
-        buttonText="Login with Google Account"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        isSignedIn={true}
-        cookiePolicy={'single_host_origin'}
-      />
+    <div className='Login'>
+      <img id='logo' src='src/Sanum.png' alt= 'logo' width='500'/>
+      <div id='google-btn'>
+        <GoogleLogin 
+          clientId = {config.client_id}
+          buttonText="Login with Google Account"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          isSignedIn={true}
+          cookiePolicy={'single_host_origin'}
+        />
+      </div>
     </div>
   )
     

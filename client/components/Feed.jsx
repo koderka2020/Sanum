@@ -22,20 +22,26 @@ const Feed = (props) => {
   const { firstname, lastname } = state;
 
   return (
-    <div>
+    <div className='feed-container'>
       <Navbar/>
-      <Popup trigger={<button> New Meal</button>} position="right center" modal>
-        <div>
-          <NewMeal />
+
+      <div className='inputs-container'>
+        <div className='inputs'>
+          <Popup trigger={<button> New Meal</button>} position="right center" modal>
+            <div>
+              <NewMeal />
+            </div>
+          </Popup>
+          <Popup trigger={<button> New Exercise</button>} position="right center" modal>
+            <div>
+              <NewExercise />
+            </div>
+          </Popup>
         </div>
-      </Popup>
-      <Popup trigger={<button> New Exercise</button>} position="right center" modal>
-        <div>
-          <NewExercise />
+      
+        <div className='feed'>
+          <FeedItem/>
         </div>
-      </Popup>
-      <div className= 'feed'>
-        <FeedItem/>
       </div>
     </div>   
   )

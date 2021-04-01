@@ -1,6 +1,7 @@
 body {
-  background-color: rgb(250, 221, 226);
-  // padding: 0px;
+  background-color: rgb(250, 249, 221);
+  height: 100vh;
+  width: 100vw;
   margin: 0px;
   display: flex;
   flex-direction: column;
@@ -9,25 +10,47 @@ body {
 
 #root {
   margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#google-btn {
+  margin: 0px 50px;
 }
 
 .nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(218, 218, 218);
+  background-color: rgb(255, 234, 152);
   margin: 0px;
-  padding: 15px;
+  padding: 10px;
 }
 
-#user {
+#nav-feed {
+  display: flex;
+  flex-grow: 2;
+  justify-content: space-evenly;
+}
+
+#nav-user {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  flex-grow: 2;
 }
 
-#user > p {
+#nav-user > p {
   margin: 5px 0px 0px 0px;
 }
 
@@ -36,10 +59,35 @@ body {
   height: 40px;
 }
 
+#nav-logout {
+  display: flex;
+  flex-grow: 0;
+}
+
+.feed-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.inputs-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 0 0 15%;
+  justify-content: space-around;
+}
+
 .feed {
   display: flex;
   flex-direction: column;
-  margin: 0 30% 0 30%;
+  margin: 0 15% 0 5%;
+  flex-grow: 2;
+  justify-content: space-around;
 }
 
 .feedItem {
@@ -48,4 +96,18 @@ body {
 
 .feedItem > img{
   width: 100%;
+}
+
+.profile-container{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../src/background.png');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30% 0 30%;
 }

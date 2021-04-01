@@ -31,36 +31,36 @@ const Profile = () => {
   // }
 
   return (
-    <div>
+    <div className='profile-container'>
       <Navbar/>
-
-      <div id= 'status-message' >
-        {/* <h2>{statusMessage}</h2> */}
-      </div>
-      <div id= 'page-center'>
-        <form>
-          <p>Set your weekly goal:</p>
-          <input type='text' className='form-control' id='goal' placeholder='Your weekly calorie goal'/>
-          {/* <button id='add-goal' type='Submit' className='btn btn-secondary' onClick = {this.props.addingGoal}>Confirm</button> */}
-        </form>
-      </div>
-      <div>
-        <h3>Burnt Calories: </h3>
-        {/* {this.props.state.totalBurnt} */}
-        <h3> Calorie Intake:</h3>
-        {/* {this.props.state.totalIntake} */}
-      </div>
-      <div id='pics'>
-        <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
-        <img src='' alt= 'running'/>
-        <img src='' alt= 'swimming'/>
-        <img src='' alt= 'lifting'/>
-      </div>
-      <div id='encourage'>
-        <h3>Keep Up The Good Work</h3>
+      <div className='profile'>
+        <div id= 'status-message' >
+          {/* <h2>{statusMessage}</h2> */}
+        </div>
+        <div id= 'page-center'>
+          <form>
+            <p>Set your weekly goal:</p>
+            <input type='text' className='form-control' id='goal' placeholder='Your weekly calorie goal'/>
+            {/* <button id='add-goal' type='Submit' className='btn btn-secondary' onClick = {this.props.addingGoal}>Confirm</button> */}
+          </form>
+        </div>
+        <div>
+          <h3>Burnt Calories: </h3>
+          {/* {this.props.state.totalBurnt} */}
+          <h3> Calorie Intake:</h3>
+          {/* {this.props.state.totalIntake} */}
+        </div>
+        <div id='pics'>
+          <img id='biking' src='src/cycling.jpg' alt= 'biking' width='500'/>
+          <img src='' alt= 'running'/>
+          <img src='' alt= 'swimming'/>
+          <img src='' alt= 'lifting'/>
+        </div>
+        <div id='encourage'>
+          <h3>Keep Up The Good Work</h3>
+        </div>
       </div>
     </div>
-    
   )
 };
 
