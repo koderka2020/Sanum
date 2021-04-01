@@ -54,6 +54,15 @@ const Login = () => {
               userId: result.user[0].userid,
             }
           });
+
+          //dispatch the caloric goal
+          dispatch({ 
+            type: 'SET_CALORIC_GOAL',
+            payload: {
+              ...payload,
+              goal: result.user[0].caloricgoal,
+            }
+          });
         })
         .catch(err => console.log('error in post fetch on DB credential'));
 

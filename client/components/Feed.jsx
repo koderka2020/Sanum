@@ -23,20 +23,25 @@ const Feed = (props) => {
 
   return (
     <div className='feed-container'>
-      <p>UserId : {userId} </p>
       <Navbar />
-      <Popup trigger={<button> New Meal</button>} position="right center" modal>
-        <div>
-          <NewMeal userId={userId} />
+
+      <div className='inputs-container'>
+        <div className='inputs'>
+          <Popup trigger={<button> New Meal</button>} position="right center" modal>
+            <div>
+              <NewMeal userId={userId} />
+            </div>
+          </Popup>
+          <Popup trigger={<button> New Exercise</button>} position="right center" modal>
+            <div>
+              <NewExercise userId={userId} />
+            </div>
+          </Popup>
         </div>
-      </Popup>
-      <Popup trigger={<button> New Exercise</button>} position="right center" modal>
-        <div>
-          <NewExercise userId={userId} />
+
+        <div className="feed">
+          <FeedItem />
         </div>
-      </Popup>
-      <div className="feed">
-        <FeedItem />
       </div>
     </div>
   );
