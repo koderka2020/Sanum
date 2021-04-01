@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const Profile = (props) => {
+const Profile = () => {
 
   // const message = () => {
   //   const statusMessage = 'this is temp test';
@@ -28,9 +28,7 @@ const Profile = (props) => {
   // }
 
   return (
-
     <div>
-
       <Link to='/feed'>
         go to feed
       </Link>
@@ -62,8 +60,7 @@ const Profile = (props) => {
       </div>
     </div>
     
-  );
-  // }
+  )
 };
 
 
